@@ -2,10 +2,13 @@ from faker import Faker
 import pandas as pd
 from faker.providers.credit_card import Provider as CreditCardProvider
 
+#Lager en falsk liste med norske verdier
 fake = Faker(['no_NO'])
 
+"Lager en panda liste med Disse under som kolonner"
 df = pd.DataFrame(columns=["Navn", "Adresse", "PersonNr", "CreditCard", "ipv4"])
 
+"Lager en liste med 100 elementer med falske navn"
 for i in range(100):
     row = fake.name(), fake.address(), fake.ssn(), fake.credit_card_number(), fake.ipv4()
     df.loc[i]=row
